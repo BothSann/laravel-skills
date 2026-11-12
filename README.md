@@ -12,7 +12,7 @@ The skills add to [Laravel Boost](https://github.com/laravel/boost) and never re
 |---|---|---|
 | `laravel-modular-monolith` | Add `nwidart/laravel-modules` modules and enforce their boundaries with Deptrac | Available |
 | `laravel-api-practices` | Write or review API code against 16 small rules that Boost doesn't cover | Available |
-| `laravel-learn` | Learn Laravel and PHP by typing a real app, one coached step at a time | Planned |
+| `laravel-learn` | Pick a task, get a proven lesson, and be coached while you type it | Available |
 | `laravel-review` | Review a pull request and post findings as inline comments | Planned |
 
 ## Install
@@ -22,6 +22,29 @@ npx skills add BothSann/laravel-skills
 ```
 
 Node is needed only for this install command and the token benchmark. The skills' scripts are plain PHP with no dependencies.
+
+`laravel-learn` also needs Git, Laravel Boost in the app, and optionally the GitHub CLI, `gh`, which lets the agent see merged PRs.
+
+## How a lesson works
+
+1. **"What next?"** The agent scans your project, offers up to three tasks, and writes a ticket for the one you pick.
+2. **"Write the lesson."** In a separate Git worktree with its own databases, the agent builds the whole solution and proves it. It then writes the guide and copies the tests into your project.
+3. **You type.** Each step takes 5–15 minutes and explains What, Why, When, and How, with a command that checks it. You run every Artisan generator and migration yourself.
+4. **"Ship it."** You run the gates, commit, and open the PR. After the merge, the agent deletes the lesson's worktree.
+
+| You say | The agent |
+|---|---|
+| `done` | Checks the step, then gives the next one |
+| `check` | Reviews your code without changing it |
+| `check and fix` | Reviews, fixes what it found, and shows what changed |
+| `you write it: <item>` | Writes that one item and explains it |
+| `ship it` | Walks you through proof, gates, commits, and the PR |
+
+Paste an error or ask a question at any time, and you'll get the root cause and the smallest fix.
+
+You type all app code, including models and migrations. The agent writes the Pest tests and, if you turn them on, Scribe attributes and PHPDoc.
+
+PHP ideas go into `learn/php-concepts.md` the first time they appear, in plain words, compared with a language you already know.
 
 ## Module boundaries
 
@@ -58,15 +81,21 @@ Limits are tested in `scripts/check-tokens.mjs`, counted with `o200k_base`.
 | Writing module code | 1,600 | 1,340 |
 | `laravel-api-practices` entry | 600 | 399 |
 | A rule file | 350 | 263 at most |
+| `done`, before the current step | 1,800 | 1,499 |
+| `check` | 2,100 | 1,709 |
+| Picking a task | 2,000 | 1,743 |
+| Writing a lesson | 3,600 | 3,051 |
+| A lesson guide | 4,000 | checked per lesson |
 
 ## What's been tested
 
 - The boundary script, against real Deptrac 4.7.2: generated rules, the self-test, and real violating code in a module tree built by the tests.
 - Every PHP example in the API rules parses, and every rule's behaviour was checked once by hand in a Laravel 13.42 app with 9 feature tests. The exception is `run-octane-safe`, which follows the Octane docs and was not run under Octane.
+- The lesson script: scanning stand-in apps, printing guide steps, and removing worktrees in real Git repos, with `gh` output stubbed. Its scan was also run by hand on a real Laravel 13 app.
 - By hand on one Windows 11 machine, on a new Laravel 13.42 app with `nwidart/laravel-modules` 13.3 and PHP 8.5: generating modules, syncing, and failing on a cross-module model import.
 - This repo's tests, lint, and token budgets, on every push and PR, on Linux and Windows with PHP 8.3.
 
-Not tested: an agent using the skill end to end, an existing app with many modules, or macOS.
+Not tested: a full lesson written and taught with `laravel-learn`, an agent using the other skills end to end, an existing app with many modules, or macOS.
 
 ## Development
 

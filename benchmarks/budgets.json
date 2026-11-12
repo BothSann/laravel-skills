@@ -26,6 +26,53 @@
           "limit": 900
         }
       }
+    },
+    "laravel-learn": {
+      "entry": 650,
+      "scenarios": {
+        "pick": {
+          "files": [
+            "SKILL.md",
+            "references/boundaries.md",
+            "references/pick.md"
+          ],
+          "limit": 2000
+        },
+        "write": {
+          "files": [
+            "SKILL.md",
+            "references/boundaries.md",
+            "references/write.md",
+            "references/templates.md",
+            "references/config.md"
+          ],
+          "limit": 3600
+        },
+        "done": {
+          "files": [
+            "SKILL.md",
+            "references/boundaries.md",
+            "references/done.md"
+          ],
+          "limit": 1800
+        },
+        "check": {
+          "files": [
+            "SKILL.md",
+            "references/boundaries.md",
+            "references/check.md"
+          ],
+          "limit": 2100
+        },
+        "ship": {
+          "files": [
+            "SKILL.md",
+            "references/boundaries.md",
+            "references/ship.md"
+          ],
+          "limit": 1800
+        }
+      }
     }
   }
 }
