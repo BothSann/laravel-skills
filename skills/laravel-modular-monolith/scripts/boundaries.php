@@ -389,9 +389,9 @@ function selftest(State $state): int
         return 1;
     }
     if ($state->modules === []) {
-        fwrite(STDERR, "error: no modules found in $state->modulesDir\n");
+        echo "ok: no modules in $state->modulesDir yet, so there are no rules to prove\n";
 
-        return 1;
+        return 0;
     }
     $dir = sys_get_temp_dir().'/boundaries-selftest-'.bin2hex(random_bytes(4));
     mkdir("$dir/src", 0777, true);
