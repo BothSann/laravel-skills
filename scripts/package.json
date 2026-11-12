@@ -1,0 +1,11 @@
+{
+  "name": "laravel-skills-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:tokens": "node check-tokens.mjs"
+  },
+  "devDependencies": {
+    "js-tiktoken": "1.0.21"
+  }
+}

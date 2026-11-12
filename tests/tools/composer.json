@@ -1,0 +1,19 @@
+{
+    "name": "bothsann/laravel-skills-test-tools",
+    "description": "PHP tools this repo's tests and lint need. Not part of any skill.",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "deptrac/deptrac": "4.7.2",
+        "laravel/pint": "^1.25",
+        "phpstan/phpstan": "^2.1"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.3.0"
+        }
+    }
+}

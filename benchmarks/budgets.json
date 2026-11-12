@@ -1,0 +1,19 @@
+{
+  "encoding": "o200k_base",
+  "description": 40,
+  "rule": 350,
+  "skills": {
+    "laravel-modular-monolith": {
+      "entry": 800,
+      "scenarios": {
+        "module-code": {
+          "files": [
+            "SKILL.md",
+            "references/structure.md"
+          ],
+          "limit": 1600
+        }
+      }
+    }
+  }
+}
