@@ -200,11 +200,12 @@ class SelftestWithoutDeptrac(Base):
         self.assertEqual(result.returncode, 1)
         self.assertIn("composer require --dev deptrac/deptrac", result.stderr)
 
-    def test_needs_a_module(self) -> None:
-        install_deptrac(self.root, "<?php\n")
+    def test_passes_before_the_first_module_exists(self) -> None:
+        """A new app adds the gate on day one, when there are no rules to prove yet."""
+        install_deptrac(self.root, "<?php\nexit(3);\n")
         result = run(self.root, "selftest")
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("no modules found", result.stderr)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("no modules in Modules yet", result.stdout)
 
     def test_fails_when_the_tool_reports_nothing(self) -> None:
         """A stand-in Deptrac that finds no violations must not pass the self-test."""
