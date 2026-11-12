@@ -14,6 +14,18 @@
           "limit": 1600
         }
       }
+    },
+    "laravel-api-practices": {
+      "entry": 600,
+      "scenarios": {
+        "rule-lookup": {
+          "files": [
+            "SKILL.md",
+            "rules/resp-error-shape.md"
+          ],
+          "limit": 900
+        }
+      }
     }
   }
 }
