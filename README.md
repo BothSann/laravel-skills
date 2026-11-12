@@ -8,12 +8,12 @@ The skills add to [Laravel Boost](https://github.com/laravel/boost) and never re
 
 ## Skills
 
-| Skill | Use it to | Status |
-|---|---|---|
-| `laravel-modular-monolith` | Add `nwidart/laravel-modules` modules and enforce their boundaries with Deptrac | Available |
-| `laravel-api-practices` | Write or review API code against 16 small rules that Boost doesn't cover | Available |
-| `laravel-learn` | Pick a task, get a proven lesson, and be coached while you type it | Available |
-| `laravel-review` | Review a pull request and post findings as inline comments | Planned |
+| Skill | Use it to |
+|---|---|
+| `laravel-modular-monolith` | Add `nwidart/laravel-modules` modules and enforce their boundaries with Deptrac |
+| `laravel-api-practices` | Write or review API code against 16 small rules that Boost doesn't cover |
+| `laravel-learn` | Pick a task, get a proven lesson, and be coached while you type it |
+| `laravel-review` | Review a pull request and post the findings as inline GitHub comments |
 
 ## Install
 
@@ -23,7 +23,7 @@ npx skills add BothSann/laravel-skills
 
 Node is needed only for this install command and the token benchmark. The skills' scripts are plain PHP with no dependencies.
 
-`laravel-learn` also needs Git, Laravel Boost in the app, and optionally the GitHub CLI, `gh`, which lets the agent see merged PRs.
+`laravel-learn` also needs Git, Laravel Boost in the app, and optionally the GitHub CLI, `gh`, which lets the agent see merged PRs. `laravel-review` needs Git and an authenticated `gh`.
 
 ## How a lesson works
 
@@ -45,6 +45,17 @@ Paste an error or ask a question at any time, and you'll get the root cause and 
 You type all app code, including models and migrations. The agent writes the Pest tests and, if you turn them on, Scribe attributes and PHPDoc.
 
 PHP ideas go into `learn/php-concepts.md` the first time they appear, in plain words, compared with a language you already know.
+
+## Pull request review
+
+`laravel-review` holds no rules of its own. It reads your project's rule files first, then Boost, then `laravel-api-practices`, and reviews a pull request against them and against what the pull request says it does.
+
+- **P1** is a wrong result, data loss, or a security hole in normal use. **P2** is wrong under a condition that will happen, such as two requests at once, or a criterion with no test. **P3** breaks a written rule, and names it.
+- Every finding must be checked against the code and state the concrete failure. Guesses are dropped.
+- You see the findings in the terminal first. On your confirmation they're posted as one review of inline comments, each shaped as `**P1 — What to do.** Evidence, consequence, fix.`
+- A re-review covers only the commits since the last one and skips findings that already have an open thread. When nothing is left, it posts one "no issues found" comment.
+
+It only ever comments. It never approves, requests changes, resolves threads, or pushes code.
 
 ## Module boundaries
 
@@ -86,16 +97,18 @@ Limits are tested in `scripts/check-tokens.mjs`, counted with `o200k_base`.
 | Picking a task | 2,000 | 1,743 |
 | Writing a lesson | 3,600 | 3,051 |
 | A lesson guide | 4,000 | checked per lesson |
+| Reviewing a pull request | 2,200 | 1,988 |
 
 ## What's been tested
 
 - The boundary script, against real Deptrac 4.7.2: generated rules, the self-test, and real violating code in a module tree built by the tests.
 - Every PHP example in the API rules parses, and every rule's behaviour was checked once by hand in a Laravel 13.42 app with 9 feature tests. The exception is `run-octane-safe`, which follows the Octane docs and was not run under Octane.
 - The lesson script: scanning stand-in apps, printing guide steps, and removing worktrees in real Git repos, with `gh` output stubbed. Its scan was also run by hand on a real Laravel 13 app.
+- The review script, against a stand-in `gh`: choosing the review range, finding open threads, placing findings inline or in the body, skipping duplicates, and the exact review it would post. Its read-only `context` command was also run on a real pull request.
 - By hand on one Windows 11 machine, on a new Laravel 13.42 app with `nwidart/laravel-modules` 13.3 and PHP 8.5: generating modules, syncing, and failing on a cross-module model import.
 - This repo's tests, lint, and token budgets, on every push and PR, on Linux and Windows with PHP 8.3.
 
-Not tested: a full lesson written and taught with `laravel-learn`, an agent using the other skills end to end, an existing app with many modules, or macOS.
+Not tested: a review posted to a real pull request with `laravel-review`, a full lesson written and taught with `laravel-learn`, an agent using the other skills end to end, an existing app with many modules, or macOS.
 
 ## Development
 

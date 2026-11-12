@@ -73,6 +73,19 @@
           "limit": 1800
         }
       }
+    },
+    "laravel-review": {
+      "entry": 650,
+      "scenarios": {
+        "review": {
+          "files": [
+            "SKILL.md",
+            "references/findings.md",
+            "references/method.md"
+          ],
+          "limit": 2200
+        }
+      }
     }
   }
 }

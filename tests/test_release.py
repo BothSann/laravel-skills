@@ -20,7 +20,7 @@ class RepoVersions(unittest.TestCase):
     def test_all_skills_share_one_version(self) -> None:
         result = check()
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("ok: 3 skills", result.stdout)
+        self.assertIn("ok: 4 skills", result.stdout)
 
     def test_a_wrong_tag_is_refused(self) -> None:
         result = check("v9.9.9")
