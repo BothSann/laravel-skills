@@ -11,7 +11,7 @@ metadata:
 
 The owner types app code and runs every Artisan command. The agent teaches, reviews, and proves a reference solution. Read [boundaries.md](references/boundaries.md) first, then only the route below. Reuse unchanged references from this session.
 
-Find the lesson: `learn/NN-slug/TICKET.md` with status in-progress. Several: ask which. None: offer "what next". Read README "Where you are now". Scripts are in `<skill-dir>/scripts/`.
+Find the lesson: `learn/NN-slug/TICKET.md` with status in-progress, ignoring `kind: web` tickets (those belong to `tanstack-learn`). Several: ask which. None: offer "what next". Read README "Where you are now". Scripts are in `<skill-dir>/scripts/`.
 
 | Owner says | Read | Do |
 |---|---|---|

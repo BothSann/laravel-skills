@@ -5,6 +5,9 @@
 3. Read the plan and confirm scan results in source. Routes come from `php artisan route:list`; the hints are text heuristics.
 4. Offer up to three feasible slices, mark one **next**, and say why. Name the Laravel and PHP ideas each one teaches. Wait for the choice.
 
+## Web lessons
+Tickets with `kind: web` and plan steps for a frontend app belong to `tanstack-learn`. Never offer, write, check, or ship them. List them once as "web: say **what next** to tanstack-learn". Read them for progress: an API slice that an in-progress or proposed web ticket waits on ranks first.
+
 ## Ranking
 The project plan and prerequisites beat scores. An in-progress lesson is always first. An empty repo offers the scaffold only.
 
