@@ -3,19 +3,32 @@
 Show the idea in plain PHP first when it helps, then what Laravel adds. Use this project's names and real output.
 
 ## PHP concepts ledger
-`learn/php-concepts.md` holds each idiom once. Search headings with `grep`; don't read the whole file. Add an entry only the first time an idea appears, and link to it afterwards. Keep it plain and short. The comparison line uses `compareWith`; leave it out when that is `null`.
+`learn/php-concepts.md` holds each idiom once. Search headings with `grep`; don't read the whole file. Add an entry only the first time an idea appears, and link to it afterwards. Use the card headings and bullet rules from [templates.md](templates.md); "When you'll use it again" becomes "Seen in". Leave out "Like in" when `compareWith` is `null`.
 
 ````markdown
 ## Readonly class
-Every property is set once in the constructor and can't change afterwards.
-TypeScript: like a class whose fields are all `readonly`, but enforced while the code runs.
+**What it is**
+- Every property is set once, in the constructor
+- Changing one later throws an `Error`
+
+**Why we use it**
+- Data passed between layers can't be changed by accident
+
+**What breaks without it**
+- An action edits a DTO field, and the controller sees the wrong value
+
+**Like in TypeScript**
+- A class whose fields are all `readonly`, but checked while the code runs
+
+**Watch out**
+- An array or object inside it can still be changed
+
 ```php
 final readonly class CreatePostData
 {
     public function __construct(public int $userId, public string $body) {}
 }
 ```
-Trap: an array or object inside it can still be changed from outside.
 Seen in: lesson 03
 ````
 
@@ -55,4 +68,4 @@ Common traps to cover when they appear:
 | `Contracts/`, `Events/` | What other modules may use |
 
 ## Notes
-For "explain in the learn folder", write `learn/notes/<idea>.md`: the question, a plain answer, a small code sample, and one "try it" command, usually for Tinker. Link it from the lesson README.
+For "explain in the learn folder", write `learn/notes/<idea>.md`: the question, then a card per [templates.md](templates.md), a small code sample, and one "try it" command, usually for Tinker. Link it from the lesson README.

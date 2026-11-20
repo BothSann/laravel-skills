@@ -29,7 +29,7 @@ Node is needed only for this install command and the token benchmark. The skills
 
 1. **"What next?"** The agent scans your project, offers up to three tasks, and writes a ticket for the one you pick.
 2. **"Write the lesson."** In a separate Git worktree with its own databases, the agent builds the whole solution and proves it. It then writes the guide and copies the tests into your project.
-3. **You type.** Each step takes 5–15 minutes and explains What, Why, When, and How, with a command that checks it. You run every Artisan generator and migration yourself.
+3. **You type.** Each step takes 5–15 minutes and teaches one new idea: the code with numbered notes, a short card in bullets (what it is, why, what breaks without it, a comparison with a language you know, when you'll use it again), and a command that checks it. You run every Artisan generator and migration yourself.
 4. **"Ship it."** You run the gates, commit, and open the PR. After the merge, the agent deletes the lesson's worktree.
 
 | You say | The agent |
@@ -44,7 +44,7 @@ Paste an error or ask a question at any time, and you'll get the root cause and 
 
 You type all app code, including models and migrations. The agent writes the Pest tests and, if you turn them on, Scribe attributes and PHPDoc.
 
-PHP ideas go into `learn/php-concepts.md` the first time they appear, in plain words, compared with a language you already know.
+PHP ideas go into `learn/php-concepts.md` the first time they appear, as the same bullet card.
 
 ## Pull request review
 
@@ -92,11 +92,11 @@ Limits are tested in `scripts/check-tokens.mjs`, counted with `o200k_base`.
 | Writing module code | 1,600 | 1,340 |
 | `laravel-api-practices` entry | 600 | 399 |
 | A rule file | 350 | 263 at most |
-| `done`, before the current step | 1,800 | 1,499 |
+| `done`, before the current step | 1,800 | 1,526 |
 | `check` | 2,100 | 1,709 |
-| Picking a task | 2,000 | 1,743 |
-| Writing a lesson | 3,600 | 3,051 |
-| A lesson guide | 4,000 | checked per lesson |
+| Picking a task | 2,000 | 1,851 |
+| Writing a lesson | 3,600 | 3,354 |
+| A lesson guide | 8 steps, no token cap | checked per lesson |
 | Reviewing a pull request | 2,200 | 1,988 |
 
 ## What's been tested

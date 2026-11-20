@@ -286,13 +286,15 @@ class Guide(Base):
         self.assertIn("steps up to 3", result.stderr)
 
     def test_size_within_limits_passes(self) -> None:
-        result = learn("guide-size", str(self.guide(6)))
+        result = learn("guide-size", str(self.guide(8)))
         self.assertEqual(result.returncode, 0)
-        self.assertIn("steps: 6/6", result.stdout)
+        self.assertIn("steps: 8/8", result.stdout)
+
+    def test_long_steps_pass(self) -> None:
+        self.assertEqual(learn("guide-size", str(self.guide(2, padding="x" * 30000))).returncode, 0)
 
     def test_size_limits_fail(self) -> None:
-        self.assertEqual(learn("guide-size", str(self.guide(7))).returncode, 1)
-        result = learn("guide-size", str(self.guide(2, padding="x" * 15000)))
+        result = learn("guide-size", str(self.guide(9)))
         self.assertEqual(result.returncode, 1)
         self.assertIn("over limit", result.stdout)
 

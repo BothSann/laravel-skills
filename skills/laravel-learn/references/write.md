@@ -30,9 +30,9 @@ If the folder exists, reuse it only if it belongs to this lesson and baseline. I
 5. Run every gate in the worktree. Stop only servers and workers you started.
 
 ## 5. Write docs in `learn/NN-slug/`
-1. Write README, GUIDE, and `check-yourself.md` from [templates.md](templates.md). GUIDE code comes from tested files.
+1. Write README and GUIDE from [templates.md](templates.md). GUIDE code comes from tested files.
 2. Add first-seen PHP ideas to `learn/php-concepts.md`, using the format in [teach.md](teach.md). Check existing headings first.
-3. Run `php <skill-dir>/scripts/learn.php guide-size learn/NN-slug/GUIDE.md`. Over the limit: split the ticket and rebuild the smaller slice. Never remove teaching to fit.
+3. Run `php <skill-dir>/scripts/learn.php guide-size learn/NN-slug/GUIDE.md`. Over 8 steps: split the ticket and rebuild the smaller slice. Never remove teaching to fit.
 
 ## 6. Start the lesson
 1. Copy this lesson's test files into the owner's checkout. Never overwrite an existing file: if a shared file such as `tests/Pest.php` changed, show the diff and let the owner apply it. A scaffold or new module copies them at a named step, once the folder exists.
