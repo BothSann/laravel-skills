@@ -19,7 +19,7 @@ The project plan and prerequisites beat scores. An in-progress lesson is always 
 | New Laravel or PHP concept (check `grep "^## " learn/php-concepts.md`) | +2 |
 | New package needed | -1 |
 
-Split anything over one endpoint, table, or practice, because lessons allow 6 steps. A new module is its own lesson before its first endpoint. If core PHP hasn't come up in several lessons, such as closures, enums, readonly classes, or interfaces, offer a small practice task that uses it in this app.
+Split anything over one endpoint, table, or practice, because lessons allow 8 steps with one new idea each. A new module is its own lesson before its first endpoint. If core PHP hasn't come up in several lessons, such as closures, enums, readonly classes, or interfaces, offer a small practice task that uses it in this app.
 
 Scaffold scope: `laravel new` with Pest and no starter kit, API routes with Sanctum, the database in `.env`, and the gates the owner wants (Pint, Larastan, tests). For a modular app add `nwidart/laravel-modules` and the boundary script through `laravel-modular-monolith`. No feature code.
 

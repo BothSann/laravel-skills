@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  *   php learn.php scan <repo> [--no-gh]          project facts, lessons, and blockers
  *   php learn.php step <GUIDE.md> <number>       print one step of a guide
- *   php learn.php guide-size <GUIDE.md>          fail when a guide is over its limits
+ *   php learn.php guide-size <GUIDE.md>          fail when a guide has too many steps
  *   php learn.php cleanup <repo> [--abandoned <NN-slug>] [--dry-run] [--no-gh]
  *                                                remove worktrees of merged lessons
  *
@@ -16,9 +16,7 @@ declare(strict_types=1);
 
 namespace Learn;
 
-const MAX_STEPS = 6;
-const MAX_GUIDE_TOKENS = 4000;
-const CHARS_PER_TOKEN = 3.5; // Conservative estimate; PHP ships no tokenizer.
+const MAX_STEPS = 8;
 const PACKAGES = [
     'laravel/boost' => 'boost',
     'nwidart/laravel-modules' => 'modules',
@@ -401,12 +399,10 @@ function showStep(string $guide, int $number): int
 
 function guideSize(string $guide): int
 {
-    $text = readText($guide);
-    $count = count(splitSteps($text));
-    $tokens = (int) round(mb_strlen($text) / CHARS_PER_TOKEN);
-    echo "steps: $count/".MAX_STEPS."; estimated tokens: $tokens/".MAX_GUIDE_TOKENS."\n";
-    if ($count > MAX_STEPS || $tokens > MAX_GUIDE_TOKENS) {
-        echo "over limit: split the ticket or shorten the guide\n";
+    $count = count(splitSteps(readText($guide)));
+    echo "steps: $count/".MAX_STEPS."\n";
+    if ($count > MAX_STEPS) {
+        echo "over limit: split the ticket\n";
 
         return 1;
     }

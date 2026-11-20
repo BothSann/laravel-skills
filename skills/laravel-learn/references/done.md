@@ -20,10 +20,10 @@ Passes: say so in one line. Fails: say what you saw in one or two lines, and don
 
 ## 2. Give the next step
 Run `php <skill-dir>/scripts/learn.php step learn/NN-slug/GUIDE.md <N>`. Don't read the whole guide. Give:
-- The step number and title.
-- What, Why, When, and How, shortened. For code, point to "GUIDE.md, step N" rather than pasting it, and name the one new idea.
-- A new PHP idea: one line, plus its `php-concepts.md` heading.
-- The check and its expected output.
+- The step number, title, and Goal.
+- "Type the code in GUIDE.md, step N." Don't paste it.
+- The new idea's name, with its **What it is** and **Why we use it** bullets. A plain PHP idea: also its `php-concepts.md` heading.
+- Run, and You should see.
 - The cue: **done** or **check**.
 
 ## 3. Update the README

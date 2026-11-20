@@ -19,4 +19,4 @@
 Record the baseline, commands, results, fakes, and unrun checks. Reference results never prove the owner's version.
 
 ## Voice
-Short, everyday English. Explain each new word once, with a real example from this project. Teach one thing per reply, covering What, Why, When, and How. Compare PHP only with the language in `compareWith`. No praise or filler. Use the configured shell; in PowerShell use `curl.exe` and `$env:NAME = "value"`.
+Short, everyday English. Explain each new word once, with a real example from this project. Teach one idea per reply, in short bullets under the card headings in [templates.md](templates.md). Compare only with the language in `compareWith`, using real code from it. No praise or filler. Use the configured shell; in PowerShell use `curl.exe` and `$env:NAME = "value"`.
