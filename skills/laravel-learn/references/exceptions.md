@@ -12,7 +12,7 @@ Only when `standingExceptions` includes `scribe`, and only after the owner's cod
 Only when `standingExceptions` includes `phpdoc`. Add blocks where a native type can't say enough: array shapes, generics such as `Collection<int, Post>`, and `@throws`. Never repeat what the signature already states.
 
 ## "you write it: <item>"
-Write that item only, not the one next to it. If it's unclear, ask which. Then explain it like a lesson step: markers on the code, then a card per [templates.md](templates.md).
+Write that item only, not the one next to it. If it's unclear, ask which. Then explain it like a lesson step: an opener, a walkthrough of the code, and an "In short" line, per [templates.md](templates.md).
 
 ## Fixes
 Only after "check and fix", or when the owner asks for a specific fix.

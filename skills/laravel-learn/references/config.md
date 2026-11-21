@@ -13,7 +13,6 @@
 | commitStyle | Message convention |
 | lessonWorktreesPath | Default: sibling `<repo-name>-lessons` |
 | standingExceptions | Any of `scribe`, `phpdoc`; or `[]` |
-| compareWith | A language the owner knows, e.g. `TypeScript`; or `null` |
 
 Default gates, run from `appRoot`: `vendor/bin/pint --test`, `vendor/bin/phpstan analyse`, `php tools/boundaries.php sync --check`, `vendor/bin/deptrac analyse`, `php tools/boundaries.php selftest`, `php artisan test`. Use only those the project has set up. If `composer.json` defines scripts that run them, such as `composer check`, use those names.
 
