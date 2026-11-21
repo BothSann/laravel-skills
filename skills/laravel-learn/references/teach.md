@@ -3,7 +3,7 @@
 Show the idea in plain PHP first when it helps, then what Laravel adds. Use this project's names and real output.
 
 ## PHP concepts ledger
-`learn/php-concepts.md` holds each idiom once. Search headings with `grep`; don't read the whole file. Add an entry only the first time an idea appears, and link to it afterwards. Use the card headings and bullet rules from [templates.md](templates.md); "When you'll use it again" becomes "Seen in". Leave out "Like in" when `compareWith` is `null`.
+`learn/php-concepts.md` holds each idiom once. Search headings with `grep`; don't read the whole file. Add an entry only the first time an idea appears, and link to it afterwards. The ledger is a lookup list, so it stays short; the guide's walkthrough does the long explaining. Each entry uses these headings: **What it is**, **Why we use it**, **What breaks without it**, an optional **Watch out**, then a code sample and "Seen in". Bullets, one fact each, about 15 words, at most 3 per heading.
 
 ````markdown
 ## Readonly class
@@ -16,9 +16,6 @@ Show the idea in plain PHP first when it helps, then what Laravel adds. Use this
 
 **What breaks without it**
 - An action edits a DTO field, and the controller sees the wrong value
-
-**Like in TypeScript**
-- A class whose fields are all `readonly`, but checked while the code runs
 
 **Watch out**
 - An array or object inside it can still be changed
@@ -68,4 +65,4 @@ Common traps to cover when they appear:
 | `Contracts/`, `Events/` | What other modules may use |
 
 ## Notes
-For "explain in the learn folder", write `learn/notes/<idea>.md`: the question, then a card per [templates.md](templates.md), a small code sample, and one "try it" command, usually for Tinker. Link it from the lesson README.
+For "explain in the learn folder", write `learn/notes/<idea>.md`: the question, an opener, a small code sample with a walkthrough and an "In short" line per [templates.md](templates.md), and one "try it" command, usually for Tinker. Link it from the lesson README.

@@ -22,7 +22,7 @@ Passes: say so in one line. Fails: say what you saw in one or two lines, and don
 Run `php <skill-dir>/scripts/learn.php step learn/NN-slug/GUIDE.md <N>`. Don't read the whole guide. Give:
 - The step number, title, and Goal.
 - "Type the code in GUIDE.md, step N." Don't paste it.
-- The new idea's name, with its **What it is** and **Why we use it** bullets. A plain PHP idea: also its `php-concepts.md` heading.
+- The step's opener, with its new idea, and its "In short" line. A plain PHP idea: also its `php-concepts.md` heading.
 - Run, and You should see.
 - The cue: **done** or **check**.
 

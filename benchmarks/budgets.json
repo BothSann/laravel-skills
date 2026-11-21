@@ -46,7 +46,7 @@
             "references/templates.md",
             "references/config.md"
           ],
-          "limit": 3600
+          "limit": 4000
         },
         "done": {
           "files": [
