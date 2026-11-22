@@ -21,6 +21,10 @@ The one plain line before a Step's code that says what this code _is_, often wit
 The numbered explanation after a Step's code that quotes each piece of code and says what it does and why it is there.
 _Avoid_: Markers, line notes
 
+**Sub-label**:
+The bold `Inside …:` line that groups the Walkthrough items for one block of code, such as a method body or a callback.
+_Avoid_: Sub-heading, section
+
 **In short**:
 The one-or-two-sentence recap that closes a Step, right before its Run line.
 _Avoid_: Summary, recap

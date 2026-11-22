@@ -59,11 +59,18 @@ Type this in `<path>`:  (or "Run this:", or "Agent writes `<path>`:")
 ```
 
 1. **The imports** — <what each `use` brings in, grouped in one item>
-2. **`<a line or short piece of code>`** — <what it does>. <Why it is there.> <What breaks without it, when there's a real error or bug to name.>
+2. **`<a line or short piece of code>`** — <what it does>.
+   - Why: <why it is there>
+   - Trap: <what breaks without it, when there's a real error or bug to name>
 
 **Inside `<method or block>`:**
-3. **`<line>`** — <what it does, with a real value, e.g. `POST /api/v1/posts` with `{"body": ""}` → 422>. <Why. Remember `<X>` from step N? …>
-4. **`<line>`** — <what and why>. <The trap, if this line has one.>
+
+3. **`<line>`** — <what it does, with a real value, e.g. `POST /api/v1/posts` with `{"body": ""}` → 422>.
+   - Why: <why it is there>
+   - Remember: <`<X>` from step N, and how this line uses it>
+   - Rule: <`rule-id`, when a rule decides this line>
+   - Trap: <the trap, if this line has one>
+4. **`<line>`** — <what it does, when one short sentence says it all>
 
 In short: <one or two sentences: what this code does, start to finish>
 
@@ -82,7 +89,9 @@ Writing rules for a step:
 - **Opener.** One plain line before the code saying what it is ("This is the bouncer for…"), ending with the step's one new idea in bold. A second new idea means split the step; for a long file, type the shell first, then each method.
 - **Walkthrough, every line.** After the code, a numbered list quotes each piece of code in backticks and explains it. Group boring lines (imports, closing braces) into one item. Never skip a line silently.
 - **What, then why.** Each item says what the code does, then why it is there. Add what breaks without it only when there's a real error, status, or bug to name. Short sentences, as many as the line needs.
-- **Sub-labels for nested code.** When a block has parts (a method body, a closure, a `try`/`catch`), group its items under a bold label like **Inside `handle()`:**, not a new heading.
+- **Item shape.** The numbered line holds the code and what it does. Everything else goes in indented sub-bullets, in this order: `Why:`, `Remember:`, `Rule:`, `Trap:`. Leave out a label the line doesn't need. When one short sentence says it all, the item stays on one line with no sub-bullets.
+- **Sub-bullets never cut content.** They reorganize the explanation so it scans; they never shorten it. Every why, pointer back, rule id, trap, and real value still appears, just on its own line.
+- **Sub-labels for nested code.** When a block has parts (a method body, a closure, a `try`/`catch`), group its items under a bold label like **Inside `handle()`:**, not a new heading. Leave a blank line between the label and its first item. A list that starts at `3.` can't sit right under text in Markdown, so without the blank line every item merges into the label as one long line.
 - **Real values.** Each step shows at least one concrete value moving through the code, using this app's routes and data: a request body, a status, a row, a config value.
 - **One picture per step.** An everyday analogy ("the bouncer at the door", "the app's memory box") may stand for the new idea. Reuse the same picture whenever that idea comes back.
 - **Point back.** When a line uses something an earlier step or lesson built, say so by name: "Remember the `StorePostRequest` from step 2?"
