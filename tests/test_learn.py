@@ -436,6 +436,12 @@ class Docs(unittest.TestCase):
         for path in (SKILL / "references").glob("*.md"):
             self.assertIn(f"references/{path.name}", text)
 
+    def test_sub_labels_are_followed_by_a_blank_line(self) -> None:
+        text = (SKILL / "references" / "templates.md").read_text(encoding="utf-8")
+        self.assertIn("**Inside `", text)
+        merged = re.findall(r"^\*\*Inside [^\n]*:\*\*\n\d+\. ", text, re.MULTILINE)
+        self.assertEqual(merged, [], "a sub-label needs a blank line before its first item")
+
     def test_other_stacks_stay_out(self) -> None:
         for path in [SKILL / "SKILL.md", *(SKILL / "references").glob("*.md")]:
             text = path.read_text(encoding="utf-8").lower()
