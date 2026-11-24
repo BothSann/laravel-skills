@@ -25,6 +25,10 @@ _Avoid_: Markers, line notes
 The bold `Inside …:` line that groups the Walkthrough items for one block of code, such as a method body or a callback.
 _Avoid_: Sub-heading, section
 
+**Technical term**:
+A word the lesson teaches, like `derived state` or `narrowing`, that stays in the text and is explained once where it first appears.
+_Avoid_: Jargon, advanced word
+
 **In short**:
 The one-or-two-sentence recap that closes a Step, right before its Run line.
 _Avoid_: Summary, recap
